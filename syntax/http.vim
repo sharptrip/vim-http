@@ -16,6 +16,7 @@ syn match httpHeaderKey     '^[A-Z][A-Za-z0-9\-]*:' contained
 syn match httpURILine       '^\(OPTIONS\|GET\|HEAD\|POST\|PUT\|DELETE\|TRACE\|CONNECT\|PATCH\)\( .*\)\?\(HTTP/[0-9.]\+\)\?$'  contains=httpMethod,httpProto contained
 syn match httpResponseLine  '^HTTP/[0-9.]\+ [0-9]\{3\}.*$' contains=httpProto,httpStatus contained
 syn match httpHeaderLine    '^[A-Z][A-Za-z0-9\-]*: .*$' contains=httpHeaderKey contained
+syn match httpCommentLine   '^#.*$'
 
 syn region httpHeader       start='^\(OPTIONS\|GET\|HEAD\|POST\|PUT\|DELETE\|TRACE\|CONNECT\|PATCH\)\( .*\)\?\(HTTP/[0-9.]\+\)\?$' end='\n\s*\n' contains=httpURILine,httpHeaderLine
 syn region httpHeader       start='^HTTP/[0-9.]\+ [0-9]\{3\}.*$' end='\n\s*\n' contains=httpResponseLine,httpHeaderLine
@@ -24,7 +25,8 @@ hi link httpMethod      Type
 hi link httpProto       Statement
 hi link httpHeaderKey   Identifier
 hi link httpStatus      String
-hi link httpStatusCode      Number
+hi link httpStatusCode  Number
+hi link httpCommentLine Comment
 
 let b:current_syntax = 'http'
 

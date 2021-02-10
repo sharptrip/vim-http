@@ -5,10 +5,13 @@ if !exists('g:vim_http_additional_curl_args')
   let g:vim_http_additional_curl_args = ''
 endif
 if !exists('g:vim_http_split_vertically')
-  let g:vim_http_split_vertically = 0
+  let g:vim_http_split_vertically = 1
 endif
 if !exists('g:vim_http_tempbuffer')
-  let g:vim_http_tempbuffer = 0
+  let g:vim_http_tempbuffer = 1
+endif
+if !exists('g:vim_http_appendbuf')
+  let g:vim_http_appendbuf = 1
 endif
 
 command! -bang -range Http call http#do('<bang>', '<count>', '<line1>', '<line2>')
